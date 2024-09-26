@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springBootDemo" />
+        <module name="aliyun-oss-spring-boot-starter" />
+        <module name="aliyun-oss-spring-boot-autoconfigure" />
+        <module name="maven-02" />
+        <module name="springBoot-demo01" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="17">
+      <module name="maven-01" target="17" />
+      <module name="springBoot-crudMybitis" target="17" />
+      <module name="springBoot-Mybits" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aliyun-oss-spring-boot-autoconfigure" options="-parameters" />
+      <module name="aliyun-oss-spring-boot-starter" options="-parameters" />
+      <module name="springBoot-Mybits" options="-parameters" />
+      <module name="springBoot-crudMybitis" options="-parameters" />
+      <module name="springBoot-demo01" options="-parameters" />
+      <module name="springBootDemo" options="-parameters" />
+    </option>
+  </component>
+</project>

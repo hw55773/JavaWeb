@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whkxdk.mapper.UserMapper">
+    <insert id="insertUser">
+        insert into `tb-user` (user_name, depte_id, create_time, update_time, avatar)
+        VALUES (#{userName}, #{depteId}, #{createTime}, #{updateTime}, #{avatar})
+    </insert>
+    <update id="update">
+        UPDATE `tb-user`
+        <set>
+            <if test="userName != null and userName != ''">
+                user_name = #{userName},
+            </if>
+            <if test="userPassword != null">
+                user_password = #{userPassword},
+            </if>
+            <if test="depteId != null">
+                depte_id = #{depteId},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteUser">
+        delete from `tb-user` where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="userList" resultType="com.whkxdk.pojo.User">
+        select user_name, id, depte_id, create_time, update_time
+        from `tb-user`
+        <where>
+            <if test="name!=null and name!=''">
+                user_name like concat('%', #{name}, '%')
+            </if>
+
+            <if test="begin!=null and end!=null">
+                and create_time between #{begin} and #{end}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+    <select id="getUserByUserNameAndUserpassword" resultType="com.whkxdk.pojo.User">
+        select user_name, user_password, id, depte_id, create_time, update_time, avatar
+        from `tb-user`
+        where user_name=#{userName} and user_password=#{userPassword}
+    </select>
+</mapper>

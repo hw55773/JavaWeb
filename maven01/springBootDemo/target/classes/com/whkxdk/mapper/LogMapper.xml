@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whkxdk.mapper.LogMapper">
+
+    <insert id="insert">
+        INSERT INTO tb_log (id,operate_user,operate_time,class_name,method_name,method_pararms,return_value,cost)
+        VALUES (#{id},#{operateUser},#{operateTime},#{className},#{methodName},#{methodPararms},#{returnValue},#{cost})
+
+
+    </insert>
+</mapper>

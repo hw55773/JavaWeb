@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wh</groupId>
+    <artifactId>maven-01</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.11</version>
+            <!--表示使用范围：
+           compile: 主程序 测试程序   打包
+           Test: 测试程序
+           provided: 主程序 测试程序
+           runtime:  测试程序  打包
+         -->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.wh</groupId>
+            <artifactId>maven-02</artifactId>
+            <version>1.0-SNAPSHOT</version>
+
+          <!--排除依赖-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.jupiter</groupId>
+                    <artifactId>junit-jupiter-api</artifactId>
+                    <!--不需要版本号-->
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>

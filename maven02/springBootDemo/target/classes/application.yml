@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: springBootDemo # 应用程序的名称
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # 数据库驱动类名称
+    url: jdbc:mysql://localhost:3306/wh # 数据库连接的URL
+    username: root # 连接数据库的用户名
+    password: 123 # 连接数据库的密码
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # Mybatis日志实现类
+    map-underscore-to-camel-case: true # Mybatis驼峰命名映射开关
+  mapper-locations: classpath*:mapper/**/*.xml
+
+aliyun:
+  oss:
+    bucket-name: web-kxdk
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+#aliyun:
+#  # 注意: 这里应该是OSS，而不是OOS
+#  oss: # 阿里云对象存储服
+#    endpoint: https://oss-cn-beijing.aliyuncs.com # OSS服务的访问端点
+#    bucketName: web-kxdk # OSS存储桶的名称
+server:
+  port: 8080 # 端口号
+
+#spring事务管理日志
+logging:
+  level:
+    root: debug
+# 对象/Map映射
+User:
+  name: "文豪"
+  age: 12
+#数组
+Subject:
+  - java
+  - python
+  - C
+  - C++

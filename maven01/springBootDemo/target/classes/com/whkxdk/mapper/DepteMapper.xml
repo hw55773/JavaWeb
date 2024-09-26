@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whkxdk.mapper.DepteMapper">
+<!--添加部门 -->
+<insert id="insertDepte" parameterType="com.whkxdk.pojo.Depte">
+    insert into tb_depte (depte_name, cagrotery, create_time, update_time)
+    values (#{depteName},#{cagrotery},#{createTime},#{updateTime})
+</insert>
+<!--修改部门信息-->
+    <update id="updateDepte">
+        update tb_depte
+        <set>
+            <if test="depteName!=null">depte_name=#{depteName},</if>
+            <if test="cagrotery!=null">cagrotery=#{cagrotery},</if>
+            <if test="createTime!=null">create_time=#{createTime},</if>
+            <if test="updateTime!=null">update_time=#{updateTime}</if>
+
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
